@@ -39,7 +39,9 @@ func main() {
 			if obj, ok := elem.AsObject(); ok {
 				for _, key := range obj.Keys() {
 					if str, ok := obj.Child(key).AsString(); ok {
-						cl.Set(key, str.Text())
+						val := str.Text()
+						fmt.Printf("    %s <- %s\n", key, val)
+						cl.Set(key, val)
 					}
 				}
 			}
